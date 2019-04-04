@@ -1,3 +1,28 @@
+# Show and Tell: A Neural Image Caption Generator
+
+I implemented the code using Keras.  
+Requirements: Python3, Keras 2.0(Tensorflow backend), NLTK, matplotlib, PIL, h5py, Jupyter  
+
+# Training and testing
+
+1. Download the Flicker8k dataset and place it in the path that contains the notebook file.  
+Maybe the directory names are Flicker8k_Dataset and Flickr8k_text.  
+Flicker8k_Dataset contains image files, and Flickr8k_text contains caption and dataset split information.(train, dev, test)  
+
+2. Data prepare
+Open data_processing.ipynb  
+In most cases, the code have comments and can be followed in order.  
+
+3. Train and test
+Open train_evaluate.ipynb  
+In most cases, the code have comments and can be followed in order.  
+
+# Demo
+
+1. Open Demo.ipynb  
+In demo, custom data to be put, and we have prepared an example in ./examples/.  
+2. If you want to only demo, final model is in the repository, so you just need to create a tokenizer in train_evaluate.ipynb.  
+
 # Simple paper review
 ## 1. Introduction
 #### Task: Automatically describing the content of an image
