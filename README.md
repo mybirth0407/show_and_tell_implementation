@@ -89,12 +89,12 @@ Table 1. Datasets.
 
 논문에서 저자들은 아래와 같은 사항들을 이용하여 실험했다.
 
-##### 1. 학습 시 **CNN**은 **Imagnet**을 통해 **pre-trained** 된 **weight**를 그대로 이용하였고, **fine tuning**은 하지 않았다.  
-##### 2. **Word embedding vector**도 **pre-trained** 된 모델을 써 보았으나 효과가 없었다.  
-##### 3. **SGD**로 학습했고 **fixed learning rate**를 사용, **decay**는 사용하지 않았다.  
-##### 4. **Word embedding size**와 LSTM의 크기는 512로 셋팅했다.  
-##### 5. **Overfitting**을 피하기 위해 **Dropout**과 **ensemble**을 사용했다. - BLEU score 향상은 거의 없었다.  
-##### 6. **Hidden layer**의 개수와 깊이를 다양하게 설정했다.  
+1. 학습 시 **CNN**은 **Imagnet**을 통해 **pre-trained** 된 **weight**를 그대로 이용하였고, **fine tuning**은 하지 않았다.  
+2. **Word embedding vector**도 **pre-trained** 된 모델을 써 보았으나 효과가 없었다.  
+3. **SGD**로 학습했고 **fixed learning rate**를 사용, **decay**는 사용하지 않았다.  
+4. **Word embedding size**와 LSTM의 크기는 512로 셋팅했다.  
+5. **Overfitting**을 피하기 위해 **Dropout**과 **ensemble**을 사용했다. - BLEU score 향상은 거의 없었다.  
+6. **Hidden layer**의 개수와 깊이를 다양하게 설정했다.  
 
 #### 4.3.2. Generation Results
 
