@@ -9,7 +9,7 @@ __Encoder-RNN__이 문장을 적절한 __Vector representation__으로 변환하
 저자들은 이 __Nerual Image Caption__(or __NIC__)라 불리는 __Encoder-RNN__을 __Encoder-CNN__으로 대체한 모델을 제안한다.
 
 Figure 1. 제안한 NIC model의 개요   
-![Figure1](./resources/figure1.png "figure1")
+![figure1](https://user-images.githubusercontent.com/15686143/55540612-4cb31f00-56fe-11e9-913d-953e02738736.PNG)
 
 #### Proposed Model: CNN encoder and RNN decoder(like machine translation), NIC
 __CNN__은 기존의 Computer vision 문제들에서 우수한 성능을 내고 있고, 이는 __CNN__이 이미지를 잘 __embeddeing__ 한다는 것에 설득력이 있다.  
@@ -24,12 +24,12 @@ __Decoder__는 해당 __vector__를 __decoding__하여 이미지를 설명하는
 저자들은 아래와 같은 수식을 __Maximizing__하는 방식으로 모델을 학습시켰다.
 
 Equation 1. Image __*I*__ 가 주어졌을 때, Description __*S*__  
-![Eqation1](./resources/equation1.png "equation1")
+![equation1](https://user-images.githubusercontent.com/15686143/55540609-4cb31f00-56fe-11e9-9734-ab1e665651b7.PNG)
 
 문장 __*S*__ 는 길이가 제한적이지 않고, 따라서 __joint probability__를 이용한 아래 수식처럼 표현할 수 있다.
 
 Equation 2. Joint probability  
-![Eqation2](./resources/equation2.png "equation2")
+![equation2](https://user-images.githubusercontent.com/15686143/55540611-4cb31f00-56fe-11e9-86e7-e7b090f5a865.PNG)
 
 문장을 생성하는 모델에 __RNN__을 사용하는것은 자연스럽고, 저자들은 RNN을 더 Concrete하게 만들기 위해 두 가지 Crucial한 선택을 했다.  
 
@@ -46,12 +46,12 @@ __LSTM__은 __Vanishing or exploding gradient__ 문제를 잘 해결하기 때�
 __LSTM__은 __Vanishing or exploding gradient__ 문제를 잘 해결하기 때문에 선택했고, __LSTM__의 전체적인 구조는 아래와 같다.  
 
 Figure 2. LSTM structure  
-![Figure2](./resources/figure2.png "figure2")
+![figure2](https://user-images.githubusercontent.com/15686143/55540614-4cb31f00-56fe-11e9-8fc5-baaa663d82fe.PNG)
 
 __Encoder-CNN__과 결합한 LSTM의 모습은 아래와 같고, 모든 LSTM의 parameter는 공유된다.
 
 Figure 3. LSTM model combined with a CNN image embedder  
-![Figure3](./resources/figure3.png "figure3")
+![figure3](https://user-images.githubusercontent.com/15686143/55540615-4d4bb580-56fe-11e9-80c5-53b0fe531253.PNG)
 
 이미지는 맨 처음 입력 단 한번만 들어가고, 이미지 벡터로부터 LSTM이 출력한 결과를 다음 LSTM의 입력으로 넣으면서 학습, 추론한다.  
 저자들은 매 step마다 이미지를 넣어주는 시도를 했으나 이는 오히려 더 쉽게 Overfit 되는 결과를 보였다.  
@@ -78,7 +78,7 @@ __n-gram__이란 다음에 나올 단어를 예측할 때 은 앞선 __n-1__개�
 다음과 같은 Dataset을 이용하였다.  
 
 Table 1. Datasets.  
-![table1](./resources/table1.png "table1")
+![table1](https://user-images.githubusercontent.com/15686143/55540616-4d4bb580-56fe-11e9-9c5f-1b18fa4878c7.PNG)
 
 __SBU__를 제외하고는 __모두 5개의 문장__이 __Labeling__ 되어 있다.  
 저자들은 __SBU__가 __Flikcr__에서 사용자들이 올린 Description이기 때문에 Noise가 있다고 보았다.  
@@ -99,7 +99,7 @@ __SBU__를 제외하고는 __모두 5개의 문장__이 __Labeling__ 되어 있�
 #### 4.3.2. Generation Results
 
 Table 2. BLEU-1 score.  
-![table2](./resources/table2.png "table2")
+![table2](https://user-images.githubusercontent.com/15686143/55540617-4d4bb580-56fe-11e9-939d-029437bb2094.PNG)
 
 사용한 4가지 Datasets 전부에서 __SOTA BLEU-1 score__를 갱신했다.  
 
@@ -116,14 +116,14 @@ __MSCOCO__는 __Flickr30k__ 보다 5배 크지만, __dataset 간 __miss-match__�
 __k=20__인 __BeamSearch__에서 상위 15개 정도는 __BLEU-1 score__ 기준으로 사람과 견줄만한 __58__점 정도를 달성했다.  
 
 Table 3. MSCOCO test set의 생성된 몇가지 예시.  
-![table3](./resources/table3.png "table3")
+![table3](https://user-images.githubusercontent.com/15686143/55540618-4de44c00-56fe-11e9-9865-3fff3e9e4bf1.PNG)
 
 #### 4.3.7. Analysis of Embeddings
 __one-hot encoding__과 다르게 __Embedding__은 __Word dictionary__의 크기에 제한되지 않는다.  
 저자들은 __Embedding space__에서 __KNN__을 이용한 몇 가지 예시를 제시했는데 아래와 같다.  
 
 Table 6. KNN을 이용한 Word embedding space analysis.  
-![table6](./resources/table6.png "table6")
+![table6](https://user-images.githubusercontent.com/15686143/55540621-4de44c00-56fe-11e9-880a-fbcfbbbd3663.PNG)
 
 __Embedding Vector__는 다른 __Vision component__에도 도움을 줄 수 있는데,  
 __horse__와 __pony, donkey__는 근접하기 때문에 __CNN__이 __horse-looking__ 동물의 특징을 추출하는 것이 더 수월해질 것이다.  
