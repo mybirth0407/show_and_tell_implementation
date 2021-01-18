@@ -27,7 +27,7 @@ In demo, custom data to be put, and we have prepared an example in ./examples/.
 ## 1. Introduction
 #### Task: Automatically describing the content of an image
 **Visual understanding** 분야는 기존의 Computer vision 문제들, Image classification 혹은 Object recognition 보다 어렵다.  
-이미지를 문장으로 설명해내는 Task는 이미지에 포함된 객체와 함께 그것들의 특성과 행동까지 잡아내야 하며, 이를 자연어로 표현해야 하는데, 이는 언어모델까지 필요하다.  
+이미지를 문장으로 설명해내는 Task는 이미지에 포함된 객체와 함께 특성과 행동까지 잡아내야 하며, 이를 자연어로 표현해야 하는데 이는 이미지 모델뿐 아니라 언어모델까지 필요하다.  
 저자들은 이 Task를 풀기 위해 **Machine translation**으로부터 영감을 얻었다.  
 문장 내의 단어들을 해석, 치환, 재배치 하는 기존의 방식에서, 최근 **RNN**을 이용한 **Encoder-Decoder** 방식이 훨씬 간단하고 좋은 성능으로 해결하고 있다.  
 **Encoder-RNN**이 문장을 적절한 **Vector representation**으로 변환하고, **Decoder-RNN**이 **vector** 로부터 번역한 문장을 생성한다.  
@@ -37,7 +37,7 @@ Figure 1. 제안한 NIC model의 개요
 ![figure1](https://user-images.githubusercontent.com/15686143/55540612-4cb31f00-56fe-11e9-913d-953e02738736.PNG)
 
 #### Proposed Model: CNN encoder and RNN decoder(like machine translation), NIC
-**CNN**은 기존의 Computer vision 문제들에서 우수한 성능을 내고 있고, 이는 **CNN**이 이미지를 잘 **embeddeing** 한다는 것에 설득력이 있다.  
+**CNN**은 기존의 Computer vision 문제들에서 우수한 성능을 내고 있고, 이는 **CNN**이 이미지를 잘 **embeddeing** 한다고 볼 수 있다.  
 따라서 **CNN**을 이미지 encoder로 사용하는 것은 자연스러운 일이고, 저자들은 **ImageNet**으로 **pre-trained** 된 모델을 사용했다.  
 **NIC**는 다른 **NN**과 같이 SGD를 통해 학습된다.  
 **NIC**는 **Pascal, Flicker8k, 30k, MSCOCO, SBU dataset**에서 사람과 근접한 **State of the art**를 달성했다.
@@ -107,7 +107,7 @@ Table 1. Datasets.
 
 **SBU**를 제외하고는 **모두 5개의 문장**이 **Labeling** 되어 있다.  
 저자들은 **SBU**가 **Flikcr**에서 사용자들이 올린 Description이기 때문에 Noise가 있다고 보았다.  
-또한 **Pascal**은 Test를 위해서만 사용하였는데, 나머지 4개의 Data로 학습을 하고 Testing 하였다.  
+또한 **Pascal**은 Test를 위해서만 사용하였고, 나머지 4개의 Data로 학습한 모델을 이용했다.  
 
 ### 4.3. Result
 #### 4.3.1. Training Details
